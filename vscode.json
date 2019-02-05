@@ -1,0 +1,31 @@
+{
+    // Telemetry
+    "telemetry.telemetryLevel": "off",
+    // Search
+    "search.searchOnType": false,
+    // Window
+    "window.titleBarStyle": "custom",
+    "window.restoreWindows": "none",
+    "window.commandCenter": false
+    // Workbench
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editor.empty.hint": "hidden",
+    // Terminal
+    "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.lineHeight": 1.0,
+    "terminal.integrated.cursorBlinking": true,
+    // Editor
+    "editor.fontWeight": "bold",
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "all",
+    "editor.suggestSelection": "first",
+    "editor.rulers": [
+        100
+    ],
+    "editor.tokenColorCustomizations": {
+        "comments": "#808080"
+    },
+    // Files
+    "files.insertFinalNewline": true
+}
