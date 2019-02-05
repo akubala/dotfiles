@@ -1,0 +1,12 @@
+{
+    "editor.fontWeight": "bold",
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "terminal.integrated.rendererType": "dom",
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        90
+    ],
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false
+}
