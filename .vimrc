@@ -16,9 +16,6 @@ set textwidth=100
 " Highlight matching brace
 set showmatch
 
-" Use visual bell (no beeping)
-set visualbell
-
 " Highlight all search results
 set hlsearch
 
@@ -52,9 +49,6 @@ set expandtab
 " Show row and column ruler information
 set ruler
 
-" Highlight current line
-set cursorline
-
 " Number of undo levels
 set undolevels=1000
 
@@ -65,10 +59,10 @@ set backspace=indent,eol,start
 set showcmd   
 
 " Set vertical line
-set colorcolumn=80
+" set colorcolumn=80
 
 " Sugar for vertical line
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+" highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Visual autocomplete for command menu
 set wildmenu
