@@ -1,12 +1,3 @@
-# prompt style and colors based on Steve Losh's Prose theme:
-# https://github.com/sjl/oh-my-zsh/blob/master/themes/prose.zsh-theme
-#
-# vcs_info modifications from Bart Trojanowski's zsh prompt:
-# http://www.jukie.net/bart/blog/pimping-out-zsh-prompt
-#
-# git untracked files modification from Brian Carper:
-# https://briancarper.net/blog/570/git-info-in-your-zsh-prompt
-
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 function virtualenv_info {
@@ -21,19 +12,21 @@ autoload -Uz vcs_info
 
 #use extended color palette if available
 if [[ $terminfo[colors] -ge 256 ]]; then
-    turquoise="%F{014}"
+    grey="%F{014}"
+    blue="%F{075}"
+    pink="%F{170}"
+    yellow="%F{214}"
     orange="%F{166}"
-    blue="%F{033}"
-    red="%F{161}"
-    green="%F{112}"
-    pink="%F{207}"
+    red="%F{198}"
+    green="%F{148}"
 else
-    turquoise="%F{cyan}"
-    orange="%F{yellow}"
+    grey="%F{grey}"
     blue="%F{blue}"
+    pink="%F{magenta}"
+    yellow="%F{yellow}"
+    orange="%F{yellow}"
     red="%F{red}"
     green="%F{green}"
-    pink="%F{pink}"
 fi
 
 # enable VCS systems you use
@@ -51,7 +44,7 @@ zstyle ':vcs_info:*:prompt:*' check-for-changes true
 # %R - repository path
 # %S - path in the repository
 PR_RST="%f"
-FMT_BRANCH="(%{$turquoise%}%b%u%c${PR_RST})"
+FMT_BRANCH="(%{$grey%}%b%u%c${PR_RST})"
 FMT_ACTION="(%{$green%}%a${PR_RST})"
 FMT_UNSTAGED="%{$orange%}●"
 FMT_STAGED="%{$green%}●"
@@ -88,9 +81,9 @@ function steeef_precmd {
         # check for untracked files or updated submodules, since vcs_info doesn't
         if git ls-files --other --exclude-standard 2> /dev/null | grep -q "."; then
             PR_GIT_UPDATE=1
-            FMT_BRANCH="(%{$turquoise%}%b%u%c%{$red%}●${PR_RST})"
+            FMT_BRANCH="(%{$grey%}%b%u%c%{$red%}●${PR_RST})"
         else
-            FMT_BRANCH="(%{$turquoise%}%b%u%c${PR_RST})"
+            FMT_BRANCH="(%{$grey%}%b%u%c${PR_RST})"
         fi
         zstyle ':vcs_info:*:prompt:*' formats "${FMT_BRANCH} "
 
@@ -101,5 +94,5 @@ function steeef_precmd {
 add-zsh-hook precmd steeef_precmd
 
 PROMPT=$'
-%{$pink%}%n${PR_RST} in %{$blue%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)
+%{$pink%}%n${PR_RST} at %{$blue%}%m${PR_RST} in %{$yellow%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)
 $ '
