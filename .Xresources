@@ -1,0 +1,20 @@
+! TERM Environmental Variable
+XTerm.termName: xterm-256color
+
+! Alt sends escape key
+XTerm.vt100.metaSendsEscape: true
+
+! Font
+xterm*faceName: Monospace
+xterm*faceSize: 10
+
+! Color
+xterm*background: black
+xterm*foreground: white
+
+! Scrollbar
+xterm*rightScrollBar: true
+xterm*ScrollBar: true
+
+! Number of scrolling lines
+XTerm.vt100.saveLines: 4096
