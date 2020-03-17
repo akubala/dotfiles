@@ -51,11 +51,11 @@ setopt hist_reduce_blanks
 
 # Completion init
 zstyle :compinstall filename "$HOME/.zshrc"
-autoload -Uz compinit
-compinit
+fpath+=("$HOME/.zsh_plugins/docker")
+autoload -Uz compinit && compinit
 
 # Include hidden files in completions
-# _comp_options+=(globdots)
+_comp_options+=(globdots)
 
 # Gimme nice tab selection
 zstyle ':completion:*:*:*:*:*' menu select
@@ -132,11 +132,11 @@ alias ....='../../..'
 alias l='ls -lah'
 alias ll='ls -lah'
 alias grep='grep --color=auto'
+alias md='mkdir -p'
+alias rd='rmdir'
 alias xclip='xclip -selection c'
 alias s="cd $HOME/Sandbox"
 alias w="cd $HOME/Work"
-alias md='mkdir -p'
-alias rd='rmdir'
 
 ########
 # Keys #
@@ -214,7 +214,3 @@ $ '
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# Antibody
-source <(antibody init)
-antibody bundle < ~/.zsh_plugins
