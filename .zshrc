@@ -1,103 +1,220 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+##########
+# Colors #
+##########
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/akubala/.oh-my-zsh"
+# Support for 256 colors
+export TERM=xterm-256color
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="steeef"
+# Load colors
+autoload -U colors && colors
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+###########
+# History #
+###########
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# History file
+HISTFILE="$HOME/.zsh_history"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# The maximum number of events stored in history memory list
+HISTSIZE=50000
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# The maximum number of history events to save in the history file
+SAVEHIST=10000
 
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Record timestamp of command in HISTFILE
+setopt extended_history
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# Delete duplicates first
+setopt hist_expire_dups_first
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+# Ignore duplicated commands history list
+setopt hist_ignore_dups
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# Ignore commands that start with space
+setopt hist_ignore_space
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# Show command with history expansion to user before running it
+setopt hist_verify
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# Add commands to HISTFILE in order of execution
+setopt inc_append_history
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+# Share command history data
+setopt share_history
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# Remove blank lines from history
+setopt hist_reduce_blanks
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-HIST_STAMPS="mm/dd/yyyy"
+##############
+# Completion #
+##############
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# Completion init
+zstyle :compinstall filename "$HOME/.zshrc"
+autoload -Uz compinit
+compinit
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(nvm)
+# Include hidden files in completions
+# _comp_options+=(globdots)
 
-source $ZSH/oh-my-zsh.sh
+# Gimme nice tab selection
+zstyle ':completion:*:*:*:*:*' menu select
 
-# User configuration
+# Completion insensitive to case and hyphens/underscores
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Complete . and .. special directories
+zstyle ':completion:*' special-dirs true
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Enable ls colors
+eval "$(dircolors -b)"
+ls --color -d . &>/dev/null && alias ls='ls --color=tty' || { ls -G . &>/dev/null && alias ls='ls -G' }
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# Colors for completions
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# Use cache for fast completion
+zstyle ':completion::complete:*' use-cache 1
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Cache path
+zstyle ':completion::complete:*' cache-path "$HOME/.cache/zsh"
 
-# Aliases
-alias xclip="xclip -selection c"
-alias s="cd ~/Sandbox"
+# cd without cd
+setopt auto_cd
+
+# Do not autoselect the first completion entry
+unsetopt menu_complete
+
+# Show completion menu on successive tab press
+setopt auto_menu
+
+# Do not set cursor to the end of the word if completion is started
+setopt complete_in_word
+
+# If a completion is performed with the cursor within a word, and a full completion
+# is inserted, the cursor is moved to the end of the word 
+setopt always_to_end
+
+# Print job notifications in the long format by default
+setopt long_list_jobs
+
+# Allow comments even in interactive shells
+setopt interactivecomments
+
+# Fancy tees and cats
+setopt multios
+
+# Make cd push the old directory onto the directory stack
+setopt auto_pushd
+
+# Do not push multiple copies of the same directory onto the directory stack
+setopt pushd_ignore_dups
+
+# Exchanges the meanings of '+' and '-'' when used with a number to specify a directory
+# in the stack
+setopt pushdminus
+
+###########
+# Aliases #
+###########
+
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+alias ...='../..'
+alias ....='../../..'
+alias l='ls -lah'
+alias ll='ls -lah'
+alias grep='grep --color=auto'
+alias xclip='xclip -selection c'
+alias s="cd $HOME/Sandbox"
+alias w="cd $HOME/Work"
+alias md='mkdir -p'
+alias rd='rmdir'
+
+########
+# Keys #
+########
+
+# Emacs mode
+bindkey -e
+
+# Edit command in vim with ctrl-v
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^v' edit-command-line
+
+# [Ctrl-RightArrow] - move forward one word
+bindkey '^[[1;5C' forward-word
+
+# [Ctrl-LeftArrow] - move backward one word
+bindkey '^[[1;5D' backward-word
+
+# [Shift-Tab] - move through the completion menu backwards
+bindkey '${terminfo[kcbt]}' reverse-menu-complete
+
+# [Backspace] - delete backward
+bindkey '^?' backward-delete-char
+
+# [Delete] - delete forward
+bindkey '^[[3~' delete-char
+
+# [Home] - Go to beginning of line
+bindkey  '^[[H' beginning-of-line
+
+# [End] - Go to end of line
+bindkey  '^[[F' end-of-line
+
+# FIXME
+# [Ctrl-r] - Search backward incrementally for a specified string
+bindkey '^r' history-incremental-search-backward
+
+#########
+# Theme #
+#########
+
+# Colors for theme
+blue="%F{075}"
+pink="%F{170}"
+yellow="%F{214}"
+grey="%F{014}"
+
+# PROMPT substitution helper
+setopt prompt_subst
+
+# Autoload vcs_info function (-U) for zsh (z)
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=(precmd_vcs_info)
+
+# Current branch display style
+zstyle ':vcs_info:git:*' formats "(%{$grey%}%b%f)"
+
+# Enable VCS systems you use
+zstyle ':vcs_info:*' enable git
+
+# Python Virtual Environment helper
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+# Python Virtual Env function
+function virtualenv_info {
+    [ $VIRTUAL_ENV ] && echo '('%F{blue}`basename $VIRTUAL_ENV`%f') '
+}
+
+# Full PROMPT
+PROMPT='
+%{$pink%}%n%f at %{$blue%}%m%f in %{$yellow%}%~%f $vcs_info_msg_0_$(virtualenv_info)
+$ '
+
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Antibody
+source <(antibody init)
+antibody bundle < ~/.zsh_plugins

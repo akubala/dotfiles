@@ -1,4 +1,5 @@
 {
+    "window.titleBarStyle": "custom",
     "editor.fontWeight": "bold",
     "editor.minimap.enabled": false,
     "workbench.startupEditor": "newUntitledFile",
@@ -8,5 +9,8 @@
         90
     ],
     "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false
+    "telemetry.enableCrashReporter": false,
+    "workbench.colorTheme": "Atom One Dark",
+    "editor.suggestSelection": "first"
+
 }
