@@ -46,21 +46,28 @@ setopt share_history
 setopt hist_reduce_blanks
 
 ##############
-# Completion #
+# Completions #
 ##############
 
-# Completion init
+# Completions init
 zstyle :compinstall filename "$HOME/.zshrc"
+
+# Add docker completions
 fpath+=("$HOME/.zsh_plugins/docker")
+
+# Load
 autoload -Uz compinit && compinit
+
+# Add kubectl completions
+source <(kubectl completion zsh)
 
 # Include hidden files in completions
 _comp_options+=(globdots)
 
-# Gimme nice tab selection
+# Add Tab selector
 zstyle ':completion:*:*:*:*:*' menu select
 
-# Completion insensitive to case and hyphens/underscores
+# Completions insensitive to case and hyphens/underscores
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
 
 # Complete . and .. special directories
@@ -73,7 +80,7 @@ ls --color -d . &>/dev/null && alias ls='ls --color=tty' || { ls -G . &>/dev/nul
 # Colors for completions
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-# Use cache for fast completion
+# Use cache for fast completions
 zstyle ':completion::complete:*' use-cache 1
 
 # Cache path
@@ -170,7 +177,6 @@ bindkey  '^[[H' beginning-of-line
 # [End] - Go to end of line
 bindkey  '^[[F' end-of-line
 
-# FIXME
 # [Ctrl-r] - Search backward incrementally for a specified string
 bindkey '^r' history-incremental-search-backward
 
@@ -192,11 +198,11 @@ autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=(precmd_vcs_info)
 
-# Current branch display style
-zstyle ':vcs_info:git:*' formats "(%{$grey%}%b%f)"
-
 # Enable VCS systems you use
 zstyle ':vcs_info:*' enable git
+
+# Current branch display style
+zstyle ':vcs_info:git:*' formats "(%{$grey%}%b%f)"
 
 # Python Virtual Environment helper
 export VIRTUAL_ENV_DISABLE_PROMPT=1
