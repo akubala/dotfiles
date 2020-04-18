@@ -1,6 +1,9 @@
 " Set syntax on
 syntax enable
 
+" Enable Ctrl + Shift + V paste
+set paste
+
 " Show line numbers
 set number
 
@@ -66,3 +69,11 @@ set showcmd
 
 " Visual autocomplete for command menu
 set wildmenu
+
+" Show ALL white space characters
+"set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+"set list
+
+" Cursor line
+set cursorline
+hi CursorLine term=bold cterm=bold 

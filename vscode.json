@@ -1,16 +1,21 @@
 {
+    "extensions.autoUpdate": false,
     "window.titleBarStyle": "custom",
     "editor.fontWeight": "bold",
     "editor.minimap.enabled": false,
     "workbench.startupEditor": "newUntitledFile",
     "terminal.integrated.rendererType": "dom",
     "editor.renderWhitespace": "all",
+    "editor.suggestSelection": "first",
+    "search.searchOnType": false,
     "editor.rulers": [
-        90
+      90
     ],
+    "editor.tokenColorCustomizations": {
+    "comments": "#808080"
+    },
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "workbench.colorTheme": "Atom One Dark",
-    "editor.suggestSelection": "first"
-
+    "workbench.iconTheme": "file-icons",
+    "window.zoomLevel": 0
 }
