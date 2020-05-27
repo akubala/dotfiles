@@ -1,19 +1,19 @@
 " Set syntax on
 syntax enable
 
-" Enable Ctrl + Shift + V paste
+" Enable paste with no mess
 set paste
 
 " Show line numbers
 set number
 
-" Break lines at word (requires Wrap lines)
+" Break lines at word [requires Wrap lines]
 set linebreak
 
 " Wrap-broken line prefix
 set showbreak=+++
 
-" Line wrap (number of cols)
+" Line wrap [number of cols]
 set textwidth=100
 
 " Highlight matching brace
@@ -44,13 +44,14 @@ set smartindent
 set smarttab
 
 " Number of spaces per Tab
-set softtabstop=4
+set softtabstop=0
+set tabstop=4
 
 " Tabs are spaces
-set expandtab
+"set expandtab
 
 " Show row and column ruler information
-set ruler
+"set ruler
 
 " Number of undo levels
 set undolevels=1000
@@ -59,10 +60,10 @@ set undolevels=1000
 set backspace=indent,eol,start	
 
 " Show command in bottom bar
-set showcmd   
+set showcmd
 
 " Set vertical line
-" set colorcolumn=80
+"set colorcolumn=80
 
 " Sugar for vertical line
 " highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -71,9 +72,10 @@ set showcmd
 set wildmenu
 
 " Show ALL white space characters
-"set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-"set list
+set listchars=tab:>·,space:·
+set list
 
-" Cursor line
+" Fat cursor line
 set cursorline
 hi CursorLine term=bold cterm=bold 
+
