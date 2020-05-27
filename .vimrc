@@ -51,7 +51,7 @@ set tabstop=4
 "set expandtab
 
 " Show row and column ruler information
-"set ruler
+set ruler
 
 " Number of undo levels
 set undolevels=1000
@@ -63,19 +63,18 @@ set backspace=indent,eol,start
 set showcmd
 
 " Set vertical line
-"set colorcolumn=80
+set colorcolumn=100
 
 " Sugar for vertical line
-" highlight ColorColumn ctermbg=0 guibg=lightgrey
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Visual autocomplete for command menu
 set wildmenu
 
-" Show ALL white space characters
+" Show white space characters
 set listchars=tab:>·,space:·
 set list
 
 " Fat cursor line
 set cursorline
 hi CursorLine term=bold cterm=bold 
-
