@@ -41,14 +41,14 @@ set shiftwidth=4
 set smartindent
 
 " Enable smart-tabs
-set smarttab
+"set smarttab
 
 " Number of spaces per Tab
 set softtabstop=0
 set tabstop=4
 
 " Tabs are spaces
-"set expandtab
+set expandtab
 
 " Show row and column ruler information
 set ruler
