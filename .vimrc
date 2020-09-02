@@ -3,6 +3,7 @@ syntax enable
 
 " Enable paste with no mess
 set paste
+set pastetoggle=<F2>
 
 " Show line numbers
 set number
@@ -57,16 +58,16 @@ set ruler
 set undolevels=1000
 
 " Backspace behaviour
-set backspace=indent,eol,start	
+set backspace=indent,eol,start
 
 " Show command in bottom bar
 set showcmd
 
 " Set vertical line
-set colorcolumn=100
+"set colorcolumn=100
 
 " Sugar for vertical line
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+"highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Visual autocomplete for command menu
 set wildmenu
