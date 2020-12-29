@@ -1,1 +1,1 @@
-# AK Dotfiles
+# My dotfiles
