@@ -1,21 +1,24 @@
 {
-    "extensions.autoUpdate": false,
-    "window.titleBarStyle": "custom",
-    "editor.fontWeight": "bold",
-    "editor.minimap.enabled": false,
-    "workbench.startupEditor": "newUntitledFile",
-    "terminal.integrated.rendererType": "dom",
-    "editor.renderWhitespace": "all",
-    "editor.suggestSelection": "first",
-    "search.searchOnType": false,
-    "editor.rulers": [
-      90
-    ],
-    "editor.tokenColorCustomizations": {
+  "search.searchOnType": false,
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": 0,
+  "window.restoreWindows": "none",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.iconTheme": "file-icons",
+  "terminal.integrated.rendererType": "dom",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.lineHeight": 1.1,
+  "terminal.integrated.cursorBlinking": true,
+  "editor.fontWeight": "bold",
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "editor.suggestSelection": "first",
+  "editor.rulers": [
+    90
+  ],
+  "editor.tokenColorCustomizations": {
     "comments": "#808080"
-    },
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "workbench.iconTheme": "file-icons",
-    "window.zoomLevel": 0
+  }
 }
