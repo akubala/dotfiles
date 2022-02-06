@@ -2,7 +2,6 @@
 syntax enable
 
 " Enable paste with no mess
-set paste
 set pastetoggle=<F2>
 
 " Show line numbers
