@@ -41,9 +41,6 @@ set shiftwidth=4
 " Enable smart-indent
 set smartindent
 
-" Enable smart-tabs
-"set smarttab
-
 " Number of spaces per Tab
 set softtabstop=0
 set tabstop=4
@@ -63,18 +60,8 @@ set backspace=indent,eol,start
 " Show command in bottom bar
 set showcmd
 
-" Set vertical line
-"set colorcolumn=100
-
-" Sugar for vertical line
-"highlight ColorColumn ctermbg=0 guibg=lightgrey
-
 " Visual autocomplete for command menu
 set wildmenu
-
-" Show white space characters
-set listchars=tab:>·,space:·
-set list
 
 " Fat cursor line
 set cursorline
