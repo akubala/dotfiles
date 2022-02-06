@@ -1,24 +1,23 @@
-{
-  "search.searchOnType": false,
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
-  "window.titleBarStyle": "custom",
-  "window.zoomLevel": 0,
-  "window.restoreWindows": "none",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.iconTheme": "file-icons",
-  "terminal.integrated.rendererType": "dom",
-  "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.lineHeight": 1.1,
-  "terminal.integrated.cursorBlinking": true,
-  "editor.fontWeight": "bold",
-  "editor.minimap.enabled": false,
-  "editor.renderWhitespace": "all",
-  "editor.suggestSelection": "first",
-  "editor.rulers": [
-    90
-  ],
-  "editor.tokenColorCustomizations": {
-    "comments": "#808080"
+{    
+    "telemetry.telemetryLevel": "off",
+    "search.searchOnType": false,
+    "window.titleBarStyle": "custom",
+    "window.restoreWindows": "none",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "file-icons",
+    "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.lineHeight": 1.0,
+    "terminal.integrated.cursorBlinking": true,
+    "editor.fontWeight": "bold",
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "all",
+    "editor.suggestSelection": "first",
+    "editor.rulers": [
+      100
+    ],
+    "editor.tokenColorCustomizations": {
+      "comments": "#808080"
+    },
+    "workbench.editor.untitled.hint": "hidden"
   }
-}
