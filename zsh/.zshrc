@@ -167,7 +167,7 @@ $ '
 ###########
 
 # Paths
-alias ...="cd ../"
+alias ..="cd .."
 alias ww="cd $HOME/Work"
 alias a="cd $HOME/Apps"
 alias s="cd $HOME/Sandbox"
